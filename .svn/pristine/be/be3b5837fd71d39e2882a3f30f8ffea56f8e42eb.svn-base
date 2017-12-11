@@ -1,0 +1,72 @@
+<?php
+
+use yii\helpers\Html;
+use kartik\export\ExportMenu;
+use kartik\grid\GridView;
+use yii\helpers\Url;
+
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\RewardSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = '通关奖励记录';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="reward-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+
+    <?php
+    $gridColumns = [
+        ['class' => 'yii\grid\SerialColumn'],
+        'tel',
+        'points',
+        'coupon',
+        [
+            'attribute' => 'created_at',
+            'value' => function ($model){
+                $created_at = date('Y-m-d H:i:s',$model->created_at);
+                return $created_at;
+            },
+
+        ],
+        [
+            'label'=>'操作',
+            'format'=>'raw',
+            'value' => function($model){
+                $view = Html::a('查看', Url::to(['reward/view','id'=>$model->id]), ['title' => '查看']);
+
+                return $view;
+            }
+        ],
+    ];
+
+    // Renders a export dropdown menu
+    echo ExportMenu::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            'tel',
+            'points',
+            'coupon',
+        ],
+        'showColumnSelector'=>false,
+        'exportConfig' => [
+            ExportMenu::FORMAT_TEXT => false,
+            ExportMenu::FORMAT_PDF => false,
+            ExportMenu::FORMAT_HTML => false,
+            ExportMenu::FORMAT_CSV => false
+        ],
+        'target' => ExportMenu::TARGET_SELF,
+
+    ]);
+
+    echo GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => $gridColumns,
+    ]);
+    ?>
+
+</div>

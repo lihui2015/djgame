@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>hongke</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>HONGKE API</h1>
+<h2>Login</h2>
+<pre><code>02/20/2017 14:43:00 AM 
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/sites/login
+Method:POST
+Request:{&quot;username&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;123456&quot;}
+Head:[NO]
+Response:
+    {&quot;code&quot;:1001,&quot;message&quot;: &quot;Parameter Incorrect&quot;}
+    {&quot;code&quot;:2000,&quot;access_token&quot;: &quot;...&quot;}
+    {&quot;code&quot;:4000,&quot;0&quot;:{&quot;password&quot;:[&quot;Password不能为空。&quot;]}}
+</code></pre>
+
+<h2>Reg</h2>
+<pre><code>02/20/2017 14:55:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/sites/reg
+Method:POST
+Request:{&quot;username&quot;:&quot;xiaogou&quot;,&quot;password&quot;:&quot;123456&quot;,&quot;email&quot;:&quot;eee@snail.com&quot;,&quot;utype&quot;:&quot;P&quot;}
+Head:[NO]
+Response:
+    {&quot;code&quot;:2001,&quot;message&quot;: &quot;注册成功&quot;}
+    {&quot;code&quot;:2002,&quot;message&quot;: &quot;已经存在了&quot;}
+    {&quot;code&quot;:2003,&quot;message&quot;: &quot;elabapi异常&quot;}
+</code></pre>
+
+<h2>localengineer (当地红客列表数据)</h2>
+<pre><code>03/03/2017 11:35:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/fds/localengineer
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer -H4YWvg4sHeDTu84-QveRdtjzDdmKzvZYZ8a5-qlp36Q8YZJWy5Gt-iAvbQAELtV&quot;}
+Response:
+    [
+      {
+        &quot;realname&quot;: &quot;初级个人&quot;,
+        &quot;engineerLevel&quot;: &quot;初级工程师&quot;,
+        &quot;area&quot;: [
+          &quot;江苏&quot;,
+          &quot;浙江&quot;
+        ],
+        &quot;certificate&quot;: [
+          &quot;个人证书&quot;
+        ],
+        &quot;order_num&quot;: &quot;4&quot;,
+        &quot;score&quot;: 0
+      },
+      {
+        &quot;realname&quot;: &quot;中级个人&quot;,
+        &quot;engineerLevel&quot;: &quot;中级工程师&quot;,
+        &quot;area&quot;: [
+          &quot;江苏&quot;,
+          &quot;浙江&quot;
+        ],
+        &quot;certificate&quot;: [
+          &quot;营业执照&quot;,
+          &quot;证书&quot;
+        ],
+        &quot;order_num&quot;: &quot;4&quot;,
+        &quot;score&quot;: 3
+      },
+      {
+        &quot;realname&quot;: null,
+        &quot;engineerLevel&quot;: &quot;无&quot;,
+        &quot;area&quot;: [
+          &quot;江苏&quot;,
+          &quot;浙江&quot;
+        ],
+        &quot;certificate&quot;: [
+          &quot;&quot;
+        ],
+        &quot;order_num&quot;: &quot;0&quot;,
+        &quot;score&quot;: 0
+      }
+    ]
+</code></pre>
+
+<h2>getskill (订单技能分类)</h2>
+<pre><code>03/03/2017 11:35:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/fds/getskill
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R&quot;}
+Response:
+    [
+      {
+        &quot;first_name&quot;: &quot;编程技能认证&quot;,
+        &quot;first_id&quot;: 44,
+        &quot;second&quot;: [
+          {
+            &quot;name&quot;: &quot;PHP&quot;,
+            &quot;id&quot;: 46,
+            &quot;third&quot;: [
+              {
+                &quot;name&quot;: &quot;高&quot;,
+                &quot;id&quot;: 64
+              },
+              {
+                &quot;name&quot;: &quot;中&quot;,
+                &quot;id&quot;: 65
+              },
+              {
+                &quot;name&quot;: &quot;低&quot;,
+                &quot;id&quot;: 66
+              }
+            ]
+          },
+          {
+            &quot;name&quot;: &quot;Java&quot;,
+            &quot;id&quot;: 47
+          }
+        ]
+      },
+      {
+        &quot;first_name&quot;: &quot;网络技能认证&quot;,
+        &quot;first_id&quot;: 45,
+        &quot;second&quot;: [
+          {
+            &quot;name&quot;: &quot;Linux&quot;,
+            &quot;id&quot;: 49
+          },
+          {
+            &quot;name&quot;: &quot;HTTP&quot;,
+            &quot;id&quot;: 62
+          },
+          {
+            &quot;name&quot;: &quot;局域网&quot;,
+            &quot;id&quot;: 63
+          }
+        ]
+      }
+    ]
+</code></pre>
+
+<h2>information (用户详细信息)</h2>
+<pre><code>03/03/2017 11:35:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/uinfos/information
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer -H4YWvg4sHeDTu84-QveRdtjzDdmKzvZYZ8a5-qlp36Q8YZJWy5Gt-iAvbQAELtV&quot;}
+Response:
+    {
+      &quot;utype&quot;: &quot;P&quot;,
+      &quot;authStatus&quot;: &quot;D&quot;,
+      &quot;username&quot;: &quot;admin&quot;,
+      &quot;image&quot;: null,
+      &quot;realname&quot;: &quot;小明&quot;,
+      &quot;card&quot;: &quot;320681198911111111&quot;,
+      &quot;tel&quot;: &quot;12345678901&quot;,
+      &quot;email&quot;: &quot;123@qq.com&quot;,
+      &quot;area&quot;: [
+        &quot;江苏省&quot;,
+        &quot;浙江省&quot;
+      ],
+      &quot;engineerLevel&quot;: &quot;初级工程师&quot;,
+      &quot;alipay&quot;: &quot;123456@qq.com&quot;,
+      &quot;unionPayName&quot;: &quot;中国银行&quot;,
+      &quot;unionPayCard&quot;: &quot;621661280000447287&quot;,
+      &quot;company&quot;: null
+    }
+</code></pre>
+
+<h2>money (账户金额：总)</h2>
+<pre><code>03/16/2017 11:35:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/accounts/money
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}企业access-token
+{&quot;Authorization&quot;:&quot;Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R&quot;}工程师access-token
+Response:
+    {
+    &quot;balance&quot;: 余额,
+    &quot;canCash&quot;: 可提现金额,
+    &quot;frozen&quot;: 冻结金额
+}
+</code></pre>
+
+<h2>balance (账户金额：余额)</h2>
+<pre><code>03/16/2017 11:35:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/accounts/balance
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}企业access-token
+{&quot;Authorization&quot;:&quot;Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R&quot;}工程师access-token
+Response:
+    余额
+</code></pre>
+
+<h2>cancash (账户金额：可提现金额)</h2>
+<pre><code>03/16/2017 11:35:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/accounts/cancash
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}企业access-token
+{&quot;Authorization&quot;:&quot;Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R&quot;}工程师access-token
+Response:
+    可提现金额
+</code></pre>
+
+<h2>frozen (账户金额：冻结金额)</h2>
+<pre><code>03/16/2017 11:35:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/accounts/frozen
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}企业access-token
+{&quot;Authorization&quot;:&quot;Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R&quot;}工程师access-token
+Response:
+    冻结金额
+</code></pre>
+
+<h2>getjdlist (接单列表数据)</h2>
+<pre><code>03/16/2017 17:00:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/jds/getjdlist
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer  vDVaQqUoH537qhLNKCZdNYNDzUOQzEdCeaYxTOQGOqxywjRe0bQGk31aawyCp-mA&quot;}
+Response:
+    [
+       {
+            &quot;id&quot;: 29,
+            &quot;orderNum&quot;: &quot;116905522&quot;,
+            &quot;catagory&quot;: &quot;培训服务&quot;,
+            &quot;name&quot;: &quot;接单测试数据&quot;,
+            &quot;servearea&quot;: &quot;江苏省南京市玄武路&quot;,
+            &quot;price&quot;: &quot;1000&quot;,
+            &quot;skill&quot;: &quot;&quot;,
+            &quot;serviceType&quot;: &quot;无&quot;,
+            &quot;endTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+            &quot;startTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+            &quot;created_at&quot;: &quot;1970-01-01 08:00:00&quot;,
+            &quot;bondPayTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+            &quot;passTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+            &quot;isbid&quot;: &quot;1&quot;,
+            &quot;jbnum&quot;: &quot;1&quot;,
+            &quot;fabuname&quot;: &quot;admin&quot;,
+            &quot;fabustatenum&quot;: &quot;Y&quot;,
+            &quot;fabustate&quot;: &quot;已认证&quot;
+        }
+    ]
+</code></pre>
+
+<h2>userinvoice (用户开票历史)</h2>
+<pre><code>03/17/2017 13:30:00 AM 
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/invoices/userinvoice
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR&quot;}
+Response:
+[
+  {
+    &quot;price&quot;: &quot;30000&quot;,
+    &quot;invoiceHeader&quot;: &quot;&quot;,
+    &quot;eName&quot;: &quot;杨琪琪&quot;,
+    &quot;eTel&quot;: &quot;18556535521&quot;,
+    &quot;house&quot;: &quot;江苏省无锡市滨湖区兴业楼A403&quot;,
+    &quot;company&quot;: &quot;&quot;,
+    &quot;expressNum&quot;: &quot;&quot;,
+    &quot;wlstatus&quot;: &quot;&quot;,
+    &quot;created_at&quot;: &quot;2017-03-17&quot;
+  }
+]
+</code></pre>
+
+<h2>kinvoice (开具发票)</h2>
+<pre><code>03/17/2017 13:30:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/invoices/kinvoice
+Method:POST
+Request:{&quot;price&quot;:&quot;2000&quot;,&quot;eName&quot;:&quot;黄宗泽&quot;,&quot;eTel&quot;:&quot;15856965523&quot;,&quot;province&quot;:&quot;130000&quot;,&quot;city&quot;:&quot;130100&quot;,&quot;eAddress&quot;:&quot;530创业大厦&quot;}    
+Head:{&quot;Authorization&quot;:&quot;Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR&quot;}    
+Response:
+{&quot;code&quot;: 397,&quot;message&quot;: &quot;发票开具成功！&quot;}
+{&quot;code&quot;: 398,&quot;message&quot;: &quot;发票开具失败&quot;}
+</code></pre>
+
+<h2>getjbzorder (参与的订单-竞标中数据)</h2>
+<pre><code>03/20/2017 11:00:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/canyus/getjbzorder
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer  vDVaQqUoH537qhLNKCZdNYNDzUOQzEdCeaYxTOQGOqxywjRe0bQGk31aawyCp-mA&quot;}
+Response:
+    [
+      {
+        &quot;id&quot;: 29,
+        &quot;orderNum&quot;: &quot;116905522&quot;,
+        &quot;name&quot;: &quot;接单测试数据&quot;,
+        &quot;workflow&quot;: &quot;two-3&quot;,
+        &quot;serviceType&quot;: &quot;无&quot;,
+        &quot;skill&quot;: &quot;&quot;,
+        &quot;price&quot;: &quot;1000&quot;,
+        &quot;servearea&quot;: &quot;江苏省南京市玄武路&quot;,
+        &quot;startTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;endTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;created_at&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;passTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;bondPayTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;acceptance&quot;: &quot;需要&quot;,
+        &quot;description&quot;: null,
+        &quot;jbnum&quot;: &quot;1&quot;,
+        &quot;catagory&quot;: &quot;培训服务&quot;,
+        &quot;fabuname&quot;: &quot;admin&quot;,
+        &quot;fabustatenum&quot;: &quot;Y&quot;,
+        &quot;fabustate&quot;: &quot;已认证&quot;,
+        &quot;userisbid&quot;: &quot;Y&quot;,
+        &quot;userbidtime&quot;: &quot;1970-01-01 08:00:00&quot;
+      }
+    ]
+</code></pre>
+
+<h2>getingorder (参与的订单-工作中数据)</h2>
+<pre><code>03/20/2017 11:00:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/canyus/getingorder
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer  vDVaQqUoH537qhLNKCZdNYNDzUOQzEdCeaYxTOQGOqxywjRe0bQGk31aawyCp-mA&quot;}
+Response:
+    [
+      {
+        &quot;jdname&quot;: &quot;test&quot;,
+        &quot;jdarea&quot;: &quot;江苏省 上海&quot;,
+        &quot;jdstatenum&quot;: null,
+        &quot;jdstate&quot;: &quot;未认证&quot;,
+        &quot;btntext&quot;: &quot;申请验收&quot;,
+        &quot;id&quot;: 32,
+        &quot;orderNum&quot;: &quot;133905522&quot;,
+        &quot;workflow&quot;: &quot;three-1&quot;,
+        &quot;name&quot;: &quot;接单测试数据2&quot;,
+        &quot;serviceType&quot;: &quot;均可&quot;,
+        &quot;skill&quot;: &quot;&quot;,
+        &quot;price&quot;: &quot;10000&quot;,
+        &quot;servearea&quot;: &quot;江苏省南京市玄武路&quot;,
+        &quot;startTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;endTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;created_at&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;bondPayTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;passTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;acceptance&quot;: &quot;需要&quot;,
+        &quot;description&quot;: null,
+        &quot;jbnum&quot;: &quot;1&quot;,
+        &quot;fabuname&quot;: &quot;admin&quot;,
+        &quot;fabutel&quot;: &quot;1&quot;,
+        &quot;fabustatenum&quot;: &quot;Y&quot;,
+        &quot;fabustate&quot;: &quot;已认证&quot;,
+        &quot;userbidtime&quot;: &quot;1970-01-01 08:00:00&quot;
+      }
+    ]
+</code></pre>
+
+<h2>getingorder (参与的订单-已完成数据)</h2>
+<pre><code>03/20/2017 11:00:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/canyus/getfinishorder
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer  vDVaQqUoH537qhLNKCZdNYNDzUOQzEdCeaYxTOQGOqxywjRe0bQGk31aawyCp-mA&quot;}
+Response:
+    [
+      {
+        &quot;jdname&quot;: &quot;test&quot;,
+        &quot;jdarea&quot;: &quot;江苏省 上海&quot;,
+        &quot;jdstatenum&quot;: null,
+        &quot;jdstate&quot;: &quot;未认证&quot;,
+        &quot;id&quot;: 33,
+        &quot;orderNum&quot;: &quot;133405522&quot;,
+        &quot;workflow&quot;: &quot;four-1&quot;,
+        &quot;name&quot;: &quot;接单测试数据3&quot;,
+        &quot;serviceType&quot;: &quot;本地&quot;,
+        &quot;servearea&quot;: &quot;上海南京市江苏路&quot;,
+        &quot;skill&quot;: &quot;&quot;,
+        &quot;price&quot;: &quot;4333&quot;,
+        &quot;startTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;endTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;created_at&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;bondPayTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;passTime&quot;: &quot;1970-01-01 08:00:00&quot;,
+        &quot;acceptance&quot;: &quot;需要&quot;,
+        &quot;description&quot;: null,
+        &quot;jbnum&quot;: &quot;1&quot;,
+        &quot;fabuname&quot;: &quot;admin&quot;,
+        &quot;fabustatenum&quot;: &quot;Y&quot;,
+        &quot;fabustate&quot;: &quot;已认证&quot;,
+        &quot;commenttime&quot;: &quot;&quot;
+      }
+    ]
+</code></pre>
+
+<h2>uinfo (个人中心-首页，显示信息)</h2>
+<pre><code>03/20/2017 14:00:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/uinfos/uinfo
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}
+Response:
+{
+  &quot;utype&quot;: &quot;C&quot;,
+  &quot;authStatus&quot;: &quot;已认证&quot;,
+  &quot;name&quot;: &quot;testc&quot;,
+  &quot;area&quot;: &quot;&quot;,
+  &quot;score&quot;: 0,
+  &quot;image&quot;: &quot;&quot;,
+  &quot;message&quot;: &quot;1&quot;
+}
+</code></pre>
+
+<h2>questioninfo (个人中心-帮助)</h2>
+<pre><code>03/20/2017 14:00:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/questions/questioninfo
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}
+Response:
+[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;是否可用进行私下交易？&quot;,
+    &quot;detail&quot;: &quot;不建议这样做，红客平台作为第三方交易平台可以更可靠的保证您的报酬安全&quot;,
+    &quot;status&quot;: &quot;Y&quot;,
+    &quot;addTime&quot;: &quot;1970-01-01&quot;,
+    &quot;endTime&quot;: &quot;2017-03-20&quot;
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;红客平台是否有费用？&quot;,
+    &quot;detail&quot;: &quot;完全没有，红客平台是一个永久免佣金的IT服务交易平台，除了给工程师报酬不会有任何费用&quot;,
+    &quot;status&quot;: &quot;Y&quot;,
+    &quot;addTime&quot;: &quot;1970-01-01&quot;,
+    &quot;endTime&quot;: &quot;2017-03-20&quot;
+  },
+  {
+    &quot;id&quot;: 3,
+    &quot;name&quot;: &quot;红客平台对工程师的工作有什么保证？&quot;,
+    &quot;detail&quot;: &quot;企业发单后，会将费用交于红客平台进行监管，当双方确认合作后，会将订单报价的30%冻结在工程师账户上，待双方验收完成后，我方会将剩余70%费用全部转入工程师的账户并且解冻订单报价的金额&quot;,
+    &quot;status&quot;: &quot;Y&quot;,
+    &quot;addTime&quot;: &quot;1970-01-01&quot;,
+    &quot;endTime&quot;: &quot;1970-01-01&quot;
+  },
+  {
+    &quot;id&quot;: 4,
+    &quot;name&quot;: &quot;红客平台对工程师的工作有什么保证？&quot;,
+    &quot;detail&quot;: &quot;企业发单后，会将费用交于红客平台进行监管，当双方确认合作后，会将订单报价的30%冻结在工程师账户上，待双方验收完成后，我方会将剩余70%费用全部转入工程师的账户并且解冻订单报价的金额&quot;,
+    &quot;status&quot;: &quot;Y&quot;,
+    &quot;addTime&quot;: &quot;1970-01-01&quot;,
+    &quot;endTime&quot;: &quot;1970-01-01&quot;
+  },
+  {
+    &quot;id&quot;: 5,
+    &quot;name&quot;: &quot;红客平台对工程师的工作有什么保证？&quot;,
+    &quot;detail&quot;: &quot;企业发单后，会将费用交于红客平台进行监管，当双方确认合作后，会将订单报价的30%冻结在工程师账户上，待双方验收完成后，我方会将剩余70%费用全部转入工程师的账户并且解冻订单报价的金额&quot;,
+    &quot;status&quot;: &quot;Y&quot;,
+    &quot;addTime&quot;: &quot;1970-01-01&quot;,
+    &quot;endTime&quot;: &quot;2017-03-15&quot;
+  }
+]
+</code></pre>
+
+<h2>message (个人中心-消息，显示信息)</h2>
+<pre><code>03/20/2017 14:00:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/messages/message
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}
+Response:
+{
+  &quot;message&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;content&quot;: &quot;测试测试测试测试&quot;,
+      &quot;send_at&quot;: &quot;2017-03-20 11:04:40&quot;,
+      &quot;count&quot;: 1,
+      &quot;page&quot;: 1,
+      &quot;num&quot;: 1
+    }
+  ],
+  &quot;id_arr&quot;: {
+    &quot;1&quot;: [
+      1
+    ]
+  }
+}
+</code></pre>
+
+<h2>read (消息标记为已读)</h2>
+<pre><code>03/20/2017 16:13:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/messages/read
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}
+Response:
+    {
+      &quot;code&quot;: 100420,
+      &quot;message&quot;: &quot;已读&quot;
+    }
+</code></pre>
+
+<h2>delmessage (批量删除消息)</h2>
+<pre><code>03/21/2017 13:55:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/messages/delmessage
+Method:POST
+Request:['1','2'](要删除的消息id数组)
+Head:{&quot;Authorization&quot;:&quot;Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC&quot;}
+Response:
+    {
+      &quot;code&quot;: 100430,
+      &quot;message&quot;: &quot;消息删除成功&quot;
+    }
+</code></pre>
+
+<h2>hkcertificate (工程师-我的证书信息列表)</h2>
+<pre><code>03/21/2017 15:36:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/auths/hkcertificate
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R&quot;}
+Response:
+    [
+      {
+        &quot;id&quot;: 1,
+        &quot;cerName&quot;: &quot;个人证书&quot;,
+        &quot;created_at&quot;: &quot;2017-02-15 16:31:11&quot;,
+        &quot;isPass&quot;: &quot;N&quot;,
+        &quot;isPassStr&quot;: null
+      },
+      {
+        &quot;id&quot;: 2,
+        &quot;cerName&quot;: &quot;证书1&quot;,
+        &quot;created_at&quot;: &quot;2017-02-15 16:31:11&quot;,
+        &quot;isPass&quot;: &quot;N&quot;,
+        &quot;isPassStr&quot;: null
+      }
+    ]
+</code></pre>
+
+<h2>einfo (工程师详情)</h2>
+<pre><code>03/23/2017 17:30:00 AM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/orders/einfo
+Method:POST
+Request:{&quot;id&quot;:&quot;3&quot;}  
+Head:{&quot;Authorization&quot;:&quot;Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR&quot;}    
+Response:
+    {
+      &quot;name&quot;: &quot;张晓红&quot;,
+      &quot;level&quot;: &quot;中级工程师&quot;,
+      &quot;status&quot;: &quot;Y&quot;,
+      &quot;sea&quot;: 2,
+      &quot;area&quot;: &quot;&quot;,
+      &quot;book&quot;: &quot;个人证书,证书1&quot;,
+      &quot;image&quot;: &quot;&quot;,
+      &quot;L&quot;: &quot;0&quot;,
+      &quot;M&quot;: &quot;0&quot;,
+      &quot;H&quot;: &quot;0&quot;
+    }
+</code></pre>
+
+<h2>reward (奖励管理)</h2>
+<pre><code>04/06/2017 14:52:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/questions/reward
+Method:POST
+Head:{&quot;Authorization&quot;:&quot;Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR&quot;}    
+Response:
+   {
+  &quot;Lprice&quot;: &quot;60&quot;,
+  &quot;Mprice&quot;: &quot;30&quot;,
+  &quot;Hprice&quot;: &quot;80&quot;
+}
+</code></pre>
+
+<h2>yproduct (确认收货)</h2>
+<pre><code>04/06/2017 14:52:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/invoices/yproduct
+Method:POST
+Request:{&quot;id&quot;:&quot;5&quot;}  
+Head:{&quot;Authorization&quot;:&quot;Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR&quot;}    
+Response:
+    {&quot;code&quot;: 399,&quot;message&quot;: &quot;收货成功！&quot;}
+</code></pre>
+
+<h2>chatcontent (聊天记录)</h2>
+<pre><code>04/06/2017 14:52:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/chats/chatcontent
+Method:POST
+Request:{&quot;id&quot;:&quot;31&quot;} 
+Head:{&quot;Authorization&quot;:&quot;Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR&quot;}    
+Response:
+   [
+  {
+    &quot;id&quot;: 22,
+    &quot;cid&quot;: &quot;2&quot;,
+    &quot;sendid&quot;: &quot;王风&quot;,
+    &quot;receiver&quot;: &quot;王五&quot;,
+    &quot;content&quot;: &quot;dd&quot;,
+    &quot;created_at&quot;: &quot;2017-03-24 09:05:21&quot;,
+    &quot;updated_at&quot;: &quot;2017-03-24 09:05:21&quot;
+  },
+  {
+    &quot;id&quot;: 23,
+    &quot;cid&quot;: &quot;2&quot;,
+    &quot;sendid&quot;: &quot;王五&quot;,
+    &quot;receiver&quot;: &quot;王风&quot;,
+    &quot;content&quot;: &quot;fff&quot;,
+    &quot;created_at&quot;: &quot;2017-03-24 09:05:24&quot;,
+    &quot;updated_at&quot;: &quot;2017-03-24 09:05:24&quot;
+  },
+]  
+</code></pre>
+
+<h2>orderdetails (发单的订单详情)</h2>
+<pre><code>04/06/2017 14:52:00 PM
+Url:http://dev.digitalsnail.cn/hk2/api/web/v1/orders/orderdetails
+Method:POST
+Request:{&quot;id&quot;:&quot;75&quot;} 
+Head:{&quot;Authorization&quot;:&quot;Bearer au2DCtfoVJVoNdB9pz49P7R7QWhwtxQMR1gzyMgwc37uf2POKe9RYryaw-pwmrPM&quot;}    
+Response:
+    {
+      &quot;fbr&quot;: {
+        &quot;name&quot;: &quot;苏南海&quot;,
+        &quot;score&quot;: 0,
+        &quot;auth&quot;: &quot;已认证&quot;,
+        &quot;area&quot;: &quot;江苏省南京市南海大厦233&quot;,
+        &quot;image&quot;: &quot;&quot;
+      },
+      &quot;engineer&quot;: [
+        {
+          &quot;id&quot;: 51,
+          &quot;name&quot;: &quot;沈凌云&quot;,
+          &quot;level&quot;: &quot;无&quot;,
+          &quot;area&quot;: &quot;&quot;,
+          &quot;book&quot;: &quot;&quot;,
+          &quot;time&quot;: &quot;2017.03.25&quot;,
+          &quot;status&quot;: &quot;Y&quot;,
+          &quot;count&quot;: &quot;0&quot;,
+          &quot;sea&quot;: 0,
+          &quot;engineerImage&quot;: &quot;&quot;,
+          &quot;bid&quot;: true
+        }
+      ],
+      &quot;process&quot;: {
+        &quot;release_time&quot;: &quot;2017.03.25 09:51:32&quot;,
+        &quot;pay_time&quot;: &quot;&quot;,
+        &quot;examine_time&quot;: &quot;2017.03.25 10:35:22&quot;,
+        &quot;select_time&quot;: &quot;2017.04.12 14:55:38&quot;,
+        &quot;inspect_time&quot;: &quot;&quot;,
+        &quot;submit_time&quot;: &quot;&quot;,
+        &quot;check_time&quot;: &quot;&quot;,
+        &quot;evaluate_time&quot;: &quot;&quot;,
+        &quot;finish_time&quot;: &quot;&quot;,
+        &quot;status&quot;: 3
+      },
+      &quot;info&quot;: {
+        &quot;categoryStr&quot;: &quot;安装调试&quot;,
+        &quot;name&quot;: &quot;测试发布个订单&quot;,
+        &quot;orderNum&quot;: &quot;N14904066923845&quot;,
+        &quot;workflowStr&quot;: &quot;选择工程师&quot;,
+        &quot;skillStr&quot;: &quot;编程技能认证-Java-中 操作系统-Windows-中 &quot;,
+        &quot;time&quot;: &quot;2017.03.14-2017.03.15&quot;,
+        &quot;address&quot;: &quot;上海上海市黄浦区朝阳路56号 朝阳大厦1101&quot;,
+        &quot;serviceType&quot;: &quot;均可&quot;,
+        &quot;engineerNo&quot;: 1,
+        &quot;price&quot;: &quot;350&quot;,
+        &quot;acceptance&quot;: &quot;不需要&quot;,
+        &quot;description&quot;: &quot;这笔订单可屌了&quot;,
+        &quot;image&quot;: [],
+        &quot;workflow&quot;: &quot;two-4&quot;,
+        &quot;stage&quot;: 2
+      }
+    }
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,9 @@
+<?php
+return [
+    'elabapi'=>[
+        'loginurl'=>'http://sso.cnhongke.org/api/login.51elab',
+        'regurl'=>'http://sso.cnhongke.org/api/signup.51elab',
+        'protectkey' => '021617zctytest001',
+        'elabid'=> 'zcapp',
+    ],
+];

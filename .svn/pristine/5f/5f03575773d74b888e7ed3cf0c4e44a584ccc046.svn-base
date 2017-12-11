@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="treestyles.css" type="text/css"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!--This file has been created with toxhtml.xsl--><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><title>hongkekaifa</title><link rel="stylesheet" href="hongkekaifa.html_files/treestyles.css" type="text/css" /><script type="text/javascript" src="hongkekaifa.html_files/marktree.js"> 
+	</script></head><body><div class="basetop"><a onclick="expandAll(document.getElementById('base'))" href="#">Expand</a> -
+<a onclick="collapseAll(document.getElementById('base'))" href="#">Collapse</a></div><div class="basetext" id="base"><ul>
+	<li class="col" id="FMID_130760541FM"><div class="nodecontent">hongkekaifa</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1313976391FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">lib</div><div class="note-and-attributes"><span class="note"><p>
+      所有的插件
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_59503842FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="nodecontent">css</div></li>
+	<li class="col" id="FMID_130511606FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="nodecontent">js</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1358023551FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">controllers</div><div class="note-and-attributes"><span class="note"><p>
+      templates下面页面对应的js，用到的服务js文件，需要在页面对应的js文件里面注入
+    </p></span></div></div></li>
+	<li class="col" id="FMID_1435501698FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">services</div><div class="note-and-attributes"><span class="note"><p>
+      主要写用来和后台对接的服务代码，后期开发继续补充
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_579502784FM"><div class="boxed"><div class="nodecontent">account.js</div><div class="note-and-attributes"><span class="note" /></div></div></li>
+	<li class="basic" id="FMID_281034965FM"><div class="boxed"><div class="nodecontent">util</div><div class="note-and-attributes"><span class="note"><p>
+      miao
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_931743534FM"><div class="boxed"><div class="nodecontent">fd.js</div><div class="note-and-attributes"><span class="note"><p>
+      发单的-miao
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_19891893FM"><div class="boxed"><div class="nodecontent">jd.js</div><div class="note-and-attributes"><span class="note"><p>
+      接单的-sly
+    </p></span></div></div></li></ul></li>
+	<li class="basic" id="FMID_1242555719FM"><div class="boxed"><div class="nodecontent">routes.js</div><div class="note-and-attributes"><span class="note"><p>
+      主要是页面跳转配置
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_306457863FM"><div class="boxed"><div class="nodecontent">constants.js</div><div class="note-and-attributes"><span class="note"><p>
+      常量，申明了后台接口
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1478959791FM"><div class="boxed"><div class="nodecontent">require-config.js</div><div class="note-and-attributes"><span class="note"><p>
+      依赖文件，写了service要在这里申明
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_233133227FM"><div class="boxed"><div class="nodecontent">app-config.js</div><div class="note-and-attributes"><span class="note"><p>
+      app全局配置文件
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_1368272304FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="nodecontent">templates</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_952398260FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">fd</div><div class="note-and-attributes"><span class="note"><p>
+      角色：客户
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1094190772FM"><div class="boxed"><div class="nodecontent">fd.html</div><div class="note-and-attributes"><span class="note"><p>
+      选择发单类型
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1454199763FM"><div class="boxed"><div class="nodecontent">fddetail.html</div><div class="note-and-attributes"><span class="note"><p>
+      填写订单
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_504145905FM"><div class="boxed"><div class="nodecontent">skill.html</div><div class="note-and-attributes"><span class="note"><p>
+      添加技能
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_784153002FM"><div class="boxed"><div class="nodecontent">fdeng.html</div><div class="note-and-attributes"><span class="note"><p>
+      查看当地红客
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_783350227FM"><div class="boxed"><div class="nodecontent">engsearch</div><div class="note-and-attributes"><span class="note"><p>
+      筛选工程师
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_877540640FM"><div class="boxed"><div class="nodecontent">fdenginfo.html</div><div class="note-and-attributes"><span class="note"><p>
+      工程师详细信息
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_815144698FM"><div class="boxed"><div class="nodecontent">fabu.html</div><div class="note-and-attributes"><span class="note"><p>
+      订单发布成功页面
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_755878086FM"><div class="boxed"><div class="nodecontent">bzj.html</div><div class="note-and-attributes"><span class="note"><p>
+      支付保证金页面
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_1629747437FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">jd</div><div class="note-and-attributes"><span class="note"><p>
+      角色：工程师
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1158844811FM"><div class="boxed"><div class="nodecontent">jd.html</div><div class="note-and-attributes"><span class="note"><p>
+      接单列表
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1766631551FM"><div class="boxed"><div class="nodecontent">jddetail.html</div><div class="note-and-attributes"><span class="note"><p>
+      订单详情
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_700816219FM"><div class="boxed"><div class="nodecontent">jdsearch.html</div><div class="note-and-attributes"><span class="note"><p>
+      订单搜索
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_475027662FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">personal</div><div class="note-and-attributes"><span class="note"><p>
+      个人信息
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_703912946FM"><div class="boxed"><div class="nodecontent">hk_personal.html</div><div class="note-and-attributes"><span class="note"><p>
+      工程师的个人信息页面
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1195932420FM"><div class="boxed"><div class="nodecontent">qy_personal.html</div><div class="note-and-attributes"><span class="note"><p>
+      客户的个人信息页面
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1746089209FM"><div class="boxed"><div class="nodecontent">mine.html</div><div class="note-and-attributes"><span class="note"><p>
+      我的页面（根据utype替换不同的链接）
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_1229566573FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">account</div><div class="note-and-attributes"><span class="note"><p>
+      工程师和客户公用一个页面
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_907284566FM"><div class="boxed"><div class="nodecontent">account.html</div><div class="note-and-attributes"><span class="note"><p>
+      我的账户页面
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1156697790FM"><div class="boxed"><div class="nodecontent">chongzhi.html</div><div class="note-and-attributes"><span class="note"><p>
+      充值页面
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_45864375FM"><div class="boxed"><div class="nodecontent">tixianlist.html</div><div class="note-and-attributes"><span class="note"><p>
+      提现记录
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_492591218FM"><div class="boxed"><div class="nodecontent">tixian.html</div><div class="note-and-attributes"><span class="note"><p>
+      提现表单页面
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_83073066FM"><div class="boxed"><div class="nodecontent">kp.html</div><div class="note-and-attributes"><span class="note"><p>
+      开具发票
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1977502407FM"><div class="boxed"><div class="nodecontent">kpls.html</div><div class="note-and-attributes"><span class="note"><p>
+      开票历史
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_396397672FM"><div class="boxed"><div class="nodecontent">shouzhidetail.html</div><div class="note-and-attributes"><span class="note"><p>
+      收支明细
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_396930470FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">canyuorder</div><div class="note-and-attributes"><span class="note"><p>
+      角色：工程师
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1658987678FM"><div class="boxed"><div class="nodecontent">canyu_order.html</div><div class="note-and-attributes"><span class="note"><p>
+      参与的订单列表：竞标中、工作中、已完成
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_686516217FM"><div class="boxed"><div class="nodecontent">jbzorder.html</div><div class="note-and-attributes"><span class="note"><p>
+      竞标中订单详情
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1977851870FM"><div class="boxed"><div class="nodecontent">ingorder.html</div><div class="note-and-attributes"><span class="note"><p>
+      工作中订单详情
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_216945181FM"><div class="boxed"><div class="nodecontent">finishorder.html</div><div class="note-and-attributes"><span class="note"><p>
+      已完成订单详情
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1711096178FM"><div class="boxed"><div class="nodecontent">pingjia.html</div><div class="note-and-attributes"><span class="note"><p>
+      工程师对客户评价
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1070138783FM"><div class="boxed"><div class="nodecontent">jdenginfo.html</div><div class="note-and-attributes"><span class="note"><p>
+      接单的工程师的详细信息（就是当前登录的用户）
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1893908336FM"><div class="boxed"><div class="nodecontent">talk.html</div><div class="note-and-attributes"><span class="note"><p>
+      聊天页面（非最终版）
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_1069877660FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">fabuorder</div><div class="note-and-attributes"><span class="note"><p>
+      角色：客户
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_555518784FM"><div class="boxed"><div class="nodecontent">fabu_order.html</div><div class="note-and-attributes"><span class="note"><p>
+      登录客户发布的订单
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1847296281FM"><div class="boxed"><div class="nodecontent">qy_shorder.html</div><div class="note-and-attributes"><span class="note"><p>
+      待审核的订单
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_868478502FM"><div class="boxed"><div class="nodecontent">qy_jbzorder.html</div><div class="note-and-attributes"><span class="note"><p>
+      竞标中的订单
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1111694262FM"><div class="boxed"><div class="nodecontent">qy_ingorder.html</div><div class="note-and-attributes"><span class="note"><p>
+      工作中的订单
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_18145025FM"><div class="boxed"><div class="nodecontent">qy_finishorder.html</div><div class="note-and-attributes"><span class="note"><p>
+      已完成的订单
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_962497811FM"><div class="boxed"><div class="nodecontent">enginfo.html</div><div class="note-and-attributes"><span class="note"><p>
+      工程师列表对应的详细个人信息
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_601516136FM"><div class="boxed"><div class="nodecontent">talk.html</div><div class="note-and-attributes"><span class="note"><p>
+      聊天页面（非最终版）
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_257471103FM"><div class="boxed"><div class="nodecontent">pingjia.html</div><div class="note-and-attributes"><span class="note"><p>
+      客户对工程师的评价
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_118918518FM"><div class="boxed"><div class="nodecontent">tuikuan.html</div><div class="note-and-attributes"><span class="note"><p>
+      退款
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_1521257504FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">authentication</div><div class="note-and-attributes"><span class="note"><p>
+      认证
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_52458879FM"><div class="boxed"><div class="nodecontent">hk_rz.html</div><div class="note-and-attributes"><span class="note"><p>
+      工程师认证列表
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1947605547FM"><div class="boxed"><div class="nodecontent">hk_sh_add.html</div><div class="note-and-attributes"><span class="note"><p>
+      工程师认证添加证书
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1709274632FM"><div class="boxed"><div class="nodecontent">hk_sh_success.html</div><div class="note-and-attributes"><span class="note"><p>
+      工程师认证成功
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1706969810FM"><div class="boxed"><div class="nodecontent">hk_sh_failed.html</div><div class="note-and-attributes"><span class="note"><p>
+      工程师认证失败
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_974688639FM"><div class="boxed"><div class="nodecontent">qy_rz_add.html</div><div class="note-and-attributes"><span class="note"><p>
+      客户认证添加证书
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_177589455FM"><div class="boxed"><div class="nodecontent">qy_sh_sucess.html</div><div class="note-and-attributes"><span class="note"><p>
+      客户认证成功
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_964291964FM"><div class="boxed"><div class="nodecontent">qy_sh_failed.html</div><div class="note-and-attributes"><span class="note"><p>
+      客户认证失败
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_190628790FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">news</div><div class="note-and-attributes"><span class="note"><p>
+      消息
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1136484370FM"><div class="nodecontent">news.html</div></li></ul></li>
+	<li class="col" id="FMID_839488473FM"><img src="hongkekaifa.html_files/icons/folder.png" alt="folder" /> <div class="boxed"><div class="nodecontent">help</div><div class="note-and-attributes"><span class="note"><p>
+      帮助
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1839124744FM"><div class="nodecontent">help.html</div></li></ul></li></ul></li></ul></li></ul></div></body></html>

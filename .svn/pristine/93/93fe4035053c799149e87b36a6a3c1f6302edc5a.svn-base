@@ -1,0 +1,74 @@
+<?php
+namespace common\components;
+
+use Yii;
+use yii\base\Component;
+use common\models\Verificationcode;
+use common\models\Payorder;
+//调用方法：Yii::$app->commonHelper->send('15298402718');
+class commonHelper extends Component {
+
+    /***
+     * $tel 接受短信的号码
+     * $string 发送的短信内容,例如验证码,当发送短信验证码的时候，$string可以为空，内置了验证码生成方法
+     **/
+    public static function send($tel){
+        $url = "http://218.94.131.219:8080/DejiService/evaluation/sendmessage";
+        $code = self::generate_code(4);
+        $post_data =json_encode(array ("mobile" => $tel,"content" => "@1@=".$code,"tempId"=>"JSM40290-0001"));
+        $result = self::http_post($url,$post_data);
+        $resArr = json_decode($result);
+        if($resArr->result == 0){
+            //短信发送成功了，才将短信验证码存入数据库中
+            self::addCode("$tel","$code");
+        }
+
+        return $result;
+    }
+
+    //生成短信验证码
+    public static function generate_code($length = 6) {
+        $min = pow(10 , ($length - 1));
+        $max = pow(10, $length) - 1;
+        return rand($min, $max);
+    }
+
+    //判断验证码是否存在，且是否过期
+    public static function isTimeout($tel,$code){
+        $model = Verificationcode::find()->where(['phone' => $tel,'code' => $code])->one();
+        //判断验证码是否存在
+        if($model){
+            $time = time();
+            //判断验证码是否过期
+            if(($time >= $model->created_at) && ($time <= $model->endtime)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //将短信添加到数据库
+    public static function addCode($phone,$code,$endtime = 2){
+        $model = new Verificationcode();
+        $model->phone = $phone;
+        $model->code = $code;
+        $model->endtime = (time()+($endtime*60*60));
+       
+        return $model->save();
+    }
+
+    public static function http_post($url,$param)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        return $output;
+    }
+
+
+
+}

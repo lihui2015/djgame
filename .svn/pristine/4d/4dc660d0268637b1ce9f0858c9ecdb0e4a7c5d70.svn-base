@@ -1,0 +1,186 @@
+<?php
+namespace frontend\controllers;
+
+use Yii;
+use yii\web\Response;
+use common\models\Register;
+use common\models\Reward;
+use common\models\Verificationcode;
+use yii\filters\VerbFilter;
+
+/***
+ * 通关后的流程：
+ * 1.用户输入手机号码，输入短信验证码(调用短信发送接口）  ok
+ * 点击提交，在调用赠送积分接口之前，需要先验证短信验证码是否正确，正确了在调用德基积分接口，
+ * 2.若接口返回手机号码是德基会员，则直接页面提示用户获得1000积分和相应金额红包文本提示
+ * 3.若接口返回手机号码不是德基会员，则提示用户不是还不是德基会员，需要注册，点击注册
+ * 4.注册页面，用户输入注册信息，点击注册按钮提交注册，调用注册接口，
+ * 注册成功后同时调用 赠送积分接口，根据赠送积分返回的结果，给出页面提示用户获得1000积分和相应金额红包文本提示
+ *
+ * 接口方面的要求：
+ * 1.短信发送接口
+ * 2.在赠送积分接口里面需要验证短信验证码是否正确，然后在赠送积分
+ * 3.积分赠送成功需要在数据库里面记录积分赠送记录
+ * 4.注册接口需要蒋注册成功的用户记录到数据库中
+ ***/
+
+class GameController extends \yii\web\Controller
+{
+    public function init()
+    {
+        parent::init();
+        Yii::$app->user->enableSession = false;
+        $this->enableCsrfValidation = false;
+    }
+//    public function behaviors()
+//    {
+//        return [
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'send'  => ['post'],
+//                    'gift'   => ['post'],
+//                    'register' => ['post']
+//                ],
+//            ],
+//        ];
+//    }
+    public function actionIndex()
+    {
+        return $this->render('index');
+    }
+
+    /***
+     * 发送短信接口
+     * @mobile 手机号码
+     **/
+    public function actionSend(){
+        $mobile = trim(Yii::$app->request->post('mobile'));
+        //        Yii::$app->response->format=Response::FORMAT_JSON;
+        $res = Yii::$app->commonHelper->send($mobile);
+        echo $res;
+    }
+
+    /**
+     * 赠送积分，需要先验证短信验证码是否正确
+     * 接受两个参数:
+     * @$mobile 手机号
+     * @$code 短信验证码
+     ***/
+
+    public function actionGift(){
+        $phone = trim(Yii::$app->request->post('mobile'));
+        $code = trim(Yii::$app->request->post('code'));
+
+        //验证码正确，开始请求积分赠送接口
+        if(Yii::$app->commonHelper->isTimeout($phone,$code)){
+            //删除数据库中该手机号对应的验证码
+            Verificationcode::deleteAll('phone = :phone',[':phone'=>$phone]);
+
+            $data = [
+                "mobile" => $phone,//手机号
+            ];
+            $url = 'http://218.94.131.219:8080/DejiService/egyptgame/presentgifts';
+            $data = json_encode($data);
+            $res = Yii::$app->commonHelper->http_post($url,$data);
+
+            $resArr = json_decode($res);
+            /**
+             * 0-成功，1-非会员，2-手机号异常，3-已经参加过活动
+             * 当积分赠送成功，数据库里面需要记录
+             * result: 3,
+            message: "已经领取过游戏福利，不能再次领取！",
+            uid: "8888000001033623"
+             *
+             * result: 0,
+            message: "已经给会员卡8888000001033626赠送1000积分，500元购物红包",
+            uid: "8888000001033626"
+             *
+             * result: 1,
+            message: "非德基广场会员，请先注册！",
+            uid: null
+             **/
+            if($resArr->result == 0){
+                $model = new Reward();
+                $model->tel = $phone;
+                $model->points = '1000';//积分树
+                $model->coupon = '500';//红包金额
+
+                $model->result = $resArr->result;
+                $model->message = $resArr->message;
+                $model->uid = $resArr->uid;
+                $model->save();
+//                if(!$model->save()){
+//                    var_dump($model->getErrors());
+//                }
+            }
+
+            echo $res;
+        }else{
+            echo json_encode(array('result' => 4,'message'=>'验证码不正确','uid'=>NULL));
+        }
+
+
+    }
+
+    /***
+     * 在线注册接口
+     * @mobile  手机号
+     * @gender 男-M，女-F
+     * @name 姓名
+     * @birthday  生日YYYY-MM-DD
+     ***/
+    public function actionRegister(){
+//        var_dump(Yii::$app->request->post());exit;
+        $phone = trim(Yii::$app->request->post('mobile'));
+        $gender = trim(Yii::$app->request->post('gender','M'));
+        $name = trim(Yii::$app->request->post('name'));
+        $birthday = trim(Yii::$app->request->post('birthday'));
+        $data = [
+            "phone" => $phone,//手机号
+            "gender" => $gender,//男-M，女-F
+            "name" => $name,//姓名
+            "birthday" => $birthday,//生日YYYY-MM-DD
+        ];
+
+//        $data = [
+//            "phone" => '15298402726',//手机号
+//            "gender" => 'M',//男-M，女-F
+//            "name" => 'Evans',//姓名
+//            "birthday" => "1986-08-28",//生日YYYY-MM-DD
+//        ];
+
+        $url = 'http://218.94.131.219:8080/DejiService/egyptgame/registercrm';
+        $postdata = json_encode($data);
+        $res = Yii::$app->commonHelper->http_post($url,$postdata);
+        $resArr = json_decode($res);
+//        var_dump($resArr);exit;
+        //0-新注册成功；1-手机号已经是会员，返回原卡号，本情况初始密码字段返回空，并提示用户用原有卡号密码登陆；2-新注册失败。
+        if($resArr->result == 0){
+            $model = new Register();
+            $model->phone = $data["phone"];
+            $model->gender = $data["gender"];
+            $model->name = $data["name"];
+            $model->birthday = $data["birthday"];
+
+            $model->result = $resArr->result;
+            $model->message = $resArr->message;
+            $model->uid = $resArr->uid;
+            $model->password = $resArr->password;
+            $model->endDate = $resArr->endDate;
+            $model->mid = $resArr->mid;
+            if(!$model->save()){
+                var_dump($model->getErrors());
+            }
+        }
+        echo $res;
+
+        //如果注册成功，则记录到数据库
+
+//        print_r($res);
+
+    }
+
+
+
+}

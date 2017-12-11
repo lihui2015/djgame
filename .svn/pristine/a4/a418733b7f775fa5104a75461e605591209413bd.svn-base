@@ -1,0 +1,27 @@
+<?php
+
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\Classify */
+
+$this->title = '更新 ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Classifies', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Update';
+?>
+<div class="row"><div class="col-lg-12">
+	<section class="panel">
+		<header class="panel-heading">
+			<?= $this->title ?>
+			<span class="pull-right"><?= Html::a('返回', ['index'], ['class'=>'btn btn-xs btn-default'])?></span>
+		</header>
+		<section class="panel-body">
+			 <?= $this->render('_form', [
+		        'model' => $model,
+		        'classify'=>$classify,
+		    ]) ?>
+		</section>
+	</section>
+</div>
+</div>

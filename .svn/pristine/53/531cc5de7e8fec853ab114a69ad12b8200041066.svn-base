@@ -1,0 +1,49 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\Register */
+
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Registers', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="register-view">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'phone',
+            [
+                'attribute' => 'gender',
+                'value' => function ($model){
+                    return ($model->gender == 'M') ? '男' : '女';
+                },
+
+            ],
+            'name',
+            'birthday',
+            'result',
+            'message',
+            'mid',
+            'uid',
+            'password',
+            'endDate',
+            [
+                'attribute' => 'created_at',
+                'value' => function ($model){
+                    $created_at = date('Y-m-d H:i:s',$model->created_at);
+                    return $created_at;
+                },
+
+            ],
+        ],
+    ]) ?>
+
+</div>

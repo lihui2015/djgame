@@ -1,0 +1,57 @@
+<?php
+
+namespace common\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "app_verificationcode".
+ *
+ * @property integer $id
+ * @property string $phone
+ * @property string $code
+ * @property integer $created_at
+ */
+class Verificationcode extends \yii\db\ActiveRecord
+{
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'app_verificationcode';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['phone', 'code'], 'required'],
+            [['created_at','phone', 'code'], 'integer'],
+            [['phone'], 'string', 'max' => 15],
+//            [['code'], 'string', 'max' => 8],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'phone' => '电话号码',
+            'code' => '验证码',
+            'created_at' => 'Created At',
+        ];
+    }
+    
+    public function behaviors()
+    {
+        return [
+            \yii\behaviors\TimestampBehavior::className(),
+        ];
+    }
+}

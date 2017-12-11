@@ -1,0 +1,23 @@
+
+api
+
+**全部post**
+
+## publics/search （搜索）
+```
+http://digitalsnail.wicp.net/api/web/v1/publics/search
+
+参数：keywords
+返回关键字相关的产品列表
+```
+
+## publics/discount (立减专区)
+```
+http://digitalsnail.wicp.net/api/web/v1/publics/discount
+```
+
+## publics/muying (母婴)
+```
+http://digitalsnail.wicp.net/api/web/v1/publics/muying
+   
+```

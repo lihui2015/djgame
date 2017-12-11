@@ -1,0 +1,74 @@
+<?php
+
+namespace common\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "app_register".
+ *
+ * @property integer $id
+ * @property string $phone
+ * @property string $gender
+ * @property string $name
+ * @property string $birthday
+ * @property string $result
+ * @property string $message
+ * @property string $mid
+ * @property string $uid
+ * @property string $password
+ * @property integer $endDate
+ * @property integer $created_at
+ * @property integer $updated_at
+ */
+class Register extends \yii\db\ActiveRecord
+{
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'app_register';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['phone', 'gender', 'name', 'birthday','endDate'], 'required'],
+            [['created_at', 'updated_at'], 'integer'],
+            [['phone', 'gender', 'name', 'birthday', 'message', 'mid', 'uid', 'password'], 'string', 'max' => 255],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'phone' => '手机号',
+            'gender' => '性别',
+            'name' => '姓名',
+            'birthday' => '生日',
+            'result' => '请求结果',
+            'message' => '消息内容',
+            'mid' => '会员账号',
+            'uid' => '会员卡号',
+            'password' => '初始密码',
+            'endDate' => '有效期',
+            'created_at' => '注册日期',
+            'updated_at' => 'Updated At',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            \yii\behaviors\TimestampBehavior::className(),
+        ];
+    }
+}

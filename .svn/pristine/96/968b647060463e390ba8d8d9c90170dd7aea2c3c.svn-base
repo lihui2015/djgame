@@ -1,0 +1,66 @@
+<?php
+
+use yii\helpers\Html;
+use leandrogehlen\treegrid\TreeGrid;
+use yii\helpers\Url;
+/* @var $this yii\web\View */
+/* @var $searchModel app\models\ClassifySearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = '分类管理';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<section class="panel">
+    <header class="panel-heading">
+        <?=$this->title?>
+    </header>
+    <div class="panel-body">
+        <div class="adv-table editable-table ">
+            <p>
+                <?= Html::a('创建分类', ['create'], ['class' => 'btn btn-success']) ?>
+                <span style="color:red;">禁止非开发人员修改删除<b>！！！</b>，否则会造成系统异常</span>
+            </p>
+            <?= TreeGrid::widget([
+                    'dataProvider' => $dataProvider,
+                    'keyColumnName' => 'id',
+                    'parentColumnName' => 'pid',
+                    'parentRootValue' => '0', //first parentId value
+                    'pluginOptions' => [
+                        'initialState' => 'collapsed',
+                    ],
+                    'columns' => [
+                        'name',
+                        'id',
+                        [
+                            'label'=>'操作',
+                            'format'=>'raw',
+                            'value' => function($model){
+                                $view_url = Url::to(['classify/view','id'=>$model->id]);
+                                $update_url = Url::to(['classify/update','id'=>$model->id]);
+                                $delete_url = Url::to(['classify/delete','id'=>$model->id]);
+
+                                // $view = Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $view_url, ['title' => '查看']);
+                                $update = Html::a('<span class="glyphicon glyphicon-pencil"></span>', $update_url, ['title' => '编辑']);
+                                $delete = Html::a('<span class="glyphicon glyphicon-trash"></span>', $delete_url, ['title' => '删除',
+                                    'data' => [
+                                    'confirm' => '您确定要删除这个分类吗?',
+                                    'method' => 'post',
+                                 ],]);
+
+                                 if($model->pid ==1 || $model->id ==1 || $model->id == 19 || $model->id ==27 || $model->id ==39 || $model->id ==45|| $model->id ==52|| $model->id ==59){
+                                     return  $update; 
+                                 }else{
+                                     return $update.' '.$delete; 
+                                 }
+
+                            }
+                        ],
+                    ]     
+            ]); ?>
+        </div>     
+    </div>
+</section>
+    
+
+
+  

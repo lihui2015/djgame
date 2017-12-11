@@ -1,0 +1,10 @@
+<?php
+require(__DIR__ . '/../../common/env.php');//env.php中用于区分开发环境还是正式环境
+
+$config = yii\helpers\ArrayHelper::merge(
+    $commonConfig,
+    require(__DIR__ . '/../config/main.php'),
+    require(__DIR__ . '/../config/main-local.php')
+);
+$application = new yii\web\Application($config);
+$application->run();

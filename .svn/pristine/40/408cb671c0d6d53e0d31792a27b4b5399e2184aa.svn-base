@@ -1,0 +1,636 @@
+# HONGKE API #
+
+## Login ##
+	02/20/2017 14:43:00 AM 
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/sites/login
+	Method:POST
+	Request:{"username":"admin","password":"123456"}
+	Head:[NO]
+	Response:
+		{"code":1001,"message": "Parameter Incorrect"}
+        {"code":2000,"access_token": "..."}
+		{"code":4000,"0":{"password":["Password不能为空。"]}}
+		
+		
+
+## Reg ##
+    02/20/2017 14:55:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/sites/reg
+    Method:POST
+    Request:{"username":"xiaogou","password":"123456","email":"eee@snail.com","utype":"P"}
+    Head:[NO]
+    Response:
+        {"code":2001,"message": "注册成功"}
+        {"code":2002,"message": "已经存在了"}
+        {"code":2003,"message": "elabapi异常"}
+		
+		
+## localengineer (当地红客列表数据)##
+    03/03/2017 11:35:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/fds/localengineer
+    Method:POST
+    Head:{"Authorization":"Bearer -H4YWvg4sHeDTu84-QveRdtjzDdmKzvZYZ8a5-qlp36Q8YZJWy5Gt-iAvbQAELtV"}
+    Response:
+        [
+		  {
+			"realname": "初级个人",
+			"engineerLevel": "初级工程师",
+			"area": [
+			  "江苏",
+			  "浙江"
+			],
+			"certificate": [
+			  "个人证书"
+			],
+			"order_num": "4",
+			"score": 0
+		  },
+		  {
+			"realname": "中级个人",
+			"engineerLevel": "中级工程师",
+			"area": [
+			  "江苏",
+			  "浙江"
+			],
+			"certificate": [
+			  "营业执照",
+			  "证书"
+			],
+			"order_num": "4",
+			"score": 3
+		  },
+		  {
+			"realname": null,
+			"engineerLevel": "无",
+			"area": [
+			  "江苏",
+			  "浙江"
+			],
+			"certificate": [
+			  ""
+			],
+			"order_num": "0",
+			"score": 0
+		  }
+		]
+		
+		
+		
+## getskill (订单技能分类)##
+    03/03/2017 11:35:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/fds/getskill
+    Method:POST
+    Head:{"Authorization":"Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R"}
+    Response:
+		[
+		  {
+		    "first_name": "编程技能认证",
+		    "first_id": 44,
+		    "second": [
+		      {
+		        "name": "PHP",
+		        "id": 46,
+		        "third": [
+		          {
+		            "name": "高",
+		            "id": 64
+		          },
+		          {
+		            "name": "中",
+		            "id": 65
+		          },
+		          {
+		            "name": "低",
+		            "id": 66
+		          }
+		        ]
+		      },
+		      {
+		        "name": "Java",
+		        "id": 47
+		      }
+		    ]
+		  },
+		  {
+		    "first_name": "网络技能认证",
+		    "first_id": 45,
+		    "second": [
+		      {
+		        "name": "Linux",
+		        "id": 49
+		      },
+		      {
+		        "name": "HTTP",
+		        "id": 62
+		      },
+		      {
+		        "name": "局域网",
+		        "id": 63
+		      }
+		    ]
+		  }
+		]
+		
+		
+## information (用户详细信息)##
+    03/03/2017 11:35:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/uinfos/information
+    Method:POST
+    Head:{"Authorization":"Bearer -H4YWvg4sHeDTu84-QveRdtjzDdmKzvZYZ8a5-qlp36Q8YZJWy5Gt-iAvbQAELtV"}
+    Response:
+		{
+		  "utype": "P",
+		  "authStatus": "D",
+		  "username": "admin",
+		  "image": null,
+		  "realname": "小明",
+		  "card": "320681198911111111",
+		  "tel": "12345678901",
+		  "email": "123@qq.com",
+		  "area": [
+			"江苏省",
+			"浙江省"
+		  ],
+		  "engineerLevel": "初级工程师",
+		  "alipay": "123456@qq.com",
+		  "unionPayName": "中国银行",
+		  "unionPayCard": "621661280000447287",
+		  "company": null
+		}
+
+## money (账户金额：总)##
+    03/16/2017 11:35:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/accounts/money
+    Method:POST
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}企业access-token
+	{"Authorization":"Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R"}工程师access-token
+	Response:
+		{
+        "balance": 余额,
+        "canCash": 可提现金额,
+        "frozen": 冻结金额
+    }
+## balance (账户金额：余额)##
+    03/16/2017 11:35:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/accounts/balance
+    Method:POST
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}企业access-token
+	{"Authorization":"Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R"}工程师access-token
+	Response:
+		余额
+
+## cancash (账户金额：可提现金额)##
+    03/16/2017 11:35:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/accounts/cancash
+    Method:POST
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}企业access-token
+	{"Authorization":"Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R"}工程师access-token
+	Response:
+		可提现金额
+
+## frozen (账户金额：冻结金额)##
+    03/16/2017 11:35:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/accounts/frozen
+    Method:POST
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}企业access-token
+	{"Authorization":"Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R"}工程师access-token
+	Response:
+		冻结金额
+
+## getjdlist (接单列表数据)##
+    03/16/2017 17:00:00 PM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/jds/getjdlist
+    Method:POST
+    Head:{"Authorization":"Bearer  vDVaQqUoH537qhLNKCZdNYNDzUOQzEdCeaYxTOQGOqxywjRe0bQGk31aawyCp-mA"}
+    Response:
+        [
+		   {
+                "id": 29,
+                "orderNum": "116905522",
+                "catagory": "培训服务",
+                "name": "接单测试数据",
+                "servearea": "江苏省南京市玄武路",
+                "price": "1000",
+                "skill": "",
+                "serviceType": "无",
+                "endTime": "1970-01-01 08:00:00",
+                "startTime": "1970-01-01 08:00:00",
+                "created_at": "1970-01-01 08:00:00",
+                "bondPayTime": "1970-01-01 08:00:00",
+                "passTime": "1970-01-01 08:00:00",
+                "isbid": "1",
+                "jbnum": "1",
+                "fabuname": "admin",
+                "fabustatenum": "Y",
+                "fabustate": "已认证"
+            }
+		]
+		
+
+## userinvoice (用户开票历史)##
+	03/17/2017 13:30:00 AM 
+	Url:http://dev.digitalsnail.cn/hk2/api/web/v1/invoices/userinvoice
+	Method:POST
+	Head:{"Authorization":"Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR"}
+	Response:
+	[
+	  {
+		"price": "30000",
+		"invoiceHeader": "",
+		"eName": "杨琪琪",
+		"eTel": "18556535521",
+		"house": "江苏省无锡市滨湖区兴业楼A403",
+		"company": "",
+		"expressNum": "",
+		"wlstatus": "",
+		"created_at": "2017-03-17"
+	  }
+	]
+
+	
+## kinvoice (开具发票)##
+	03/17/2017 13:30:00 AM
+	Url:http://dev.digitalsnail.cn/hk2/api/web/v1/invoices/kinvoice
+	Method:POST
+	Request:{"price":"2000","eName":"黄宗泽","eTel":"15856965523","province":"130000","city":"130100","eAddress":"530创业大厦"}	
+	Head:{"Authorization":"Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR"}	
+	Response:
+    {"code": 397,"message": "发票开具成功！"}
+	{"code": 398,"message": "发票开具失败"}
+
+
+## getjbzorder (参与的订单-竞标中数据)##
+    03/20/2017 11:00:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/canyus/getjbzorder
+    Method:POST
+    Head:{"Authorization":"Bearer  vDVaQqUoH537qhLNKCZdNYNDzUOQzEdCeaYxTOQGOqxywjRe0bQGk31aawyCp-mA"}
+    Response:
+        [
+          {
+            "id": 29,
+            "orderNum": "116905522",
+            "name": "接单测试数据",
+            "workflow": "two-3",
+            "serviceType": "无",
+            "skill": "",
+            "price": "1000",
+            "servearea": "江苏省南京市玄武路",
+            "startTime": "1970-01-01 08:00:00",
+            "endTime": "1970-01-01 08:00:00",
+            "created_at": "1970-01-01 08:00:00",
+            "passTime": "1970-01-01 08:00:00",
+            "bondPayTime": "1970-01-01 08:00:00",
+            "acceptance": "需要",
+            "description": null,
+            "jbnum": "1",
+            "catagory": "培训服务",
+            "fabuname": "admin",
+            "fabustatenum": "Y",
+            "fabustate": "已认证",
+            "userisbid": "Y",
+            "userbidtime": "1970-01-01 08:00:00"
+          }
+        ]
+ 
+## getingorder (参与的订单-工作中数据)##
+    03/20/2017 11:00:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/canyus/getingorder
+    Method:POST
+    Head:{"Authorization":"Bearer  vDVaQqUoH537qhLNKCZdNYNDzUOQzEdCeaYxTOQGOqxywjRe0bQGk31aawyCp-mA"}
+    Response:
+        [
+          {
+            "jdname": "test",
+            "jdarea": "江苏省 上海",
+            "jdstatenum": null,
+            "jdstate": "未认证",
+            "btntext": "申请验收",
+            "id": 32,
+            "orderNum": "133905522",
+            "workflow": "three-1",
+            "name": "接单测试数据2",
+            "serviceType": "均可",
+            "skill": "",
+            "price": "10000",
+            "servearea": "江苏省南京市玄武路",
+            "startTime": "1970-01-01 08:00:00",
+            "endTime": "1970-01-01 08:00:00",
+            "created_at": "1970-01-01 08:00:00",
+            "bondPayTime": "1970-01-01 08:00:00",
+            "passTime": "1970-01-01 08:00:00",
+            "acceptance": "需要",
+            "description": null,
+            "jbnum": "1",
+            "fabuname": "admin",
+            "fabutel": "1",
+            "fabustatenum": "Y",
+            "fabustate": "已认证",
+            "userbidtime": "1970-01-01 08:00:00"
+          }
+        ]
+
+## getingorder (参与的订单-已完成数据)##
+    03/20/2017 11:00:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/canyus/getfinishorder
+    Method:POST
+    Head:{"Authorization":"Bearer  vDVaQqUoH537qhLNKCZdNYNDzUOQzEdCeaYxTOQGOqxywjRe0bQGk31aawyCp-mA"}
+    Response:
+        [
+          {
+            "jdname": "test",
+            "jdarea": "江苏省 上海",
+            "jdstatenum": null,
+            "jdstate": "未认证",
+            "id": 33,
+            "orderNum": "133405522",
+            "workflow": "four-1",
+            "name": "接单测试数据3",
+            "serviceType": "本地",
+            "servearea": "上海南京市江苏路",
+            "skill": "",
+            "price": "4333",
+            "startTime": "1970-01-01 08:00:00",
+            "endTime": "1970-01-01 08:00:00",
+            "created_at": "1970-01-01 08:00:00",
+            "bondPayTime": "1970-01-01 08:00:00",
+            "passTime": "1970-01-01 08:00:00",
+            "acceptance": "需要",
+            "description": null,
+            "jbnum": "1",
+            "fabuname": "admin",
+            "fabustatenum": "Y",
+            "fabustate": "已认证",
+            "commenttime": ""
+          }
+        ]
+
+## uinfo (个人中心-首页，显示信息)##
+    03/20/2017 14:00:00 PM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/uinfos/uinfo
+    Method:POST
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}
+    Response:
+	{
+	  "utype": "C",
+	  "authStatus": "已认证",
+	  "name": "testc",
+	  "area": "",
+	  "score": 0,
+	  "image": "",
+	  "message": "1"
+	}
+
+## questioninfo (个人中心-帮助)##
+    03/20/2017 14:00:00 PM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/questions/questioninfo
+    Method:POST
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}
+    Response:
+	[
+	  {
+	    "id": 1,
+	    "name": "是否可用进行私下交易？",
+	    "detail": "不建议这样做，红客平台作为第三方交易平台可以更可靠的保证您的报酬安全",
+	    "status": "Y",
+	    "addTime": "1970-01-01",
+	    "endTime": "2017-03-20"
+	  },
+	  {
+	    "id": 2,
+	    "name": "红客平台是否有费用？",
+	    "detail": "完全没有，红客平台是一个永久免佣金的IT服务交易平台，除了给工程师报酬不会有任何费用",
+	    "status": "Y",
+	    "addTime": "1970-01-01",
+	    "endTime": "2017-03-20"
+	  },
+	  {
+	    "id": 3,
+	    "name": "红客平台对工程师的工作有什么保证？",
+	    "detail": "企业发单后，会将费用交于红客平台进行监管，当双方确认合作后，会将订单报价的30%冻结在工程师账户上，待双方验收完成后，我方会将剩余70%费用全部转入工程师的账户并且解冻订单报价的金额",
+	    "status": "Y",
+	    "addTime": "1970-01-01",
+	    "endTime": "1970-01-01"
+	  },
+	  {
+	    "id": 4,
+	    "name": "红客平台对工程师的工作有什么保证？",
+	    "detail": "企业发单后，会将费用交于红客平台进行监管，当双方确认合作后，会将订单报价的30%冻结在工程师账户上，待双方验收完成后，我方会将剩余70%费用全部转入工程师的账户并且解冻订单报价的金额",
+	    "status": "Y",
+	    "addTime": "1970-01-01",
+	    "endTime": "1970-01-01"
+	  },
+	  {
+	    "id": 5,
+	    "name": "红客平台对工程师的工作有什么保证？",
+	    "detail": "企业发单后，会将费用交于红客平台进行监管，当双方确认合作后，会将订单报价的30%冻结在工程师账户上，待双方验收完成后，我方会将剩余70%费用全部转入工程师的账户并且解冻订单报价的金额",
+	    "status": "Y",
+	    "addTime": "1970-01-01",
+	    "endTime": "2017-03-15"
+	  }
+	]
+
+
+## message (个人中心-消息，显示信息)##
+    03/20/2017 14:00:00 PM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/messages/message
+    Method:POST
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}
+    Response:
+	{
+	  "message": [
+	    {
+	      "id": 1,
+	      "content": "测试测试测试测试",
+	      "send_at": "2017-03-20 11:04:40",
+	      "count": 1,
+	      "page": 1,
+	      "num": 1
+	    }
+	  ],
+	  "id_arr": {
+	    "1": [
+	      1
+	    ]
+	  }
+	}
+
+## read (消息标记为已读)##
+    03/20/2017 16:13:00 PM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/messages/read
+    Method:POST
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}
+    Response:
+		{
+		  "code": 100420,
+		  "message": "已读"
+		}
+
+
+## delmessage (批量删除消息)##
+    03/21/2017 13:55:00 PM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/messages/delmessage
+    Method:POST
+	Request:['1','2'](要删除的消息id数组)
+    Head:{"Authorization":"Bearer v3ohgHH652heGafWH5EZX0agwqnsf5QvQkHNV0rNK5h50DiAP3gggSEDjzTxVSAC"}
+    Response:
+		{
+		  "code": 100430,
+		  "message": "消息删除成功"
+		}
+
+## hkcertificate (工程师-我的证书信息列表)##
+    03/21/2017 15:36:00 PM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/auths/hkcertificate
+    Method:POST
+    Head:{"Authorization":"Bearer YyiAlqpxKjJVKm7alWQca_Kf7oBsFo1QbaLvZdw3G3fGzo-akJdKToKCfG0P2u2R"}
+    Response:
+		[
+		  {
+		    "id": 1,
+		    "cerName": "个人证书",
+		    "created_at": "2017-02-15 16:31:11",
+		    "isPass": "N",
+		    "isPassStr": null
+		  },
+		  {
+		    "id": 2,
+		    "cerName": "证书1",
+		    "created_at": "2017-02-15 16:31:11",
+		    "isPass": "N",
+		    "isPassStr": null
+		  }
+		]
+		
+## einfo (工程师详情)##
+    03/23/2017 17:30:00 AM
+    Url:http://dev.digitalsnail.cn/hk2/api/web/v1/orders/einfo
+    Method:POST
+    Request:{"id":"3"}	
+    Head:{"Authorization":"Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR"}	
+    Response:
+        {
+          "name": "张晓红",
+          "level": "中级工程师",
+          "status": "Y",
+          "sea": 2,
+          "area": "",
+          "book": "个人证书,证书1",
+          "image": "",
+          "L": "0",
+          "M": "0",
+          "H": "0"
+        }
+
+
+## reward (奖励管理)##
+	04/06/2017 14:52:00 PM
+	Url:http://dev.digitalsnail.cn/hk2/api/web/v1/questions/reward
+	Method:POST
+	Head:{"Authorization":"Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR"}	
+	Response:
+	   {
+	  "Lprice": "60",
+	  "Mprice": "30",
+	  "Hprice": "80"
+	}
+
+
+## yproduct (确认收货)##
+	04/06/2017 14:52:00 PM
+	Url:http://dev.digitalsnail.cn/hk2/api/web/v1/invoices/yproduct
+	Method:POST
+	Request:{"id":"5"}	
+	Head:{"Authorization":"Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR"}	
+	Response:
+	    {"code": 399,"message": "收货成功！"}
+
+
+## chatcontent (聊天记录)##
+	04/06/2017 14:52:00 PM
+	Url:http://dev.digitalsnail.cn/hk2/api/web/v1/chats/chatcontent
+	Method:POST
+	Request:{"id":"31"}	
+	Head:{"Authorization":"Bearer K_Kq8P7WMVnHwE4Qec-TZGgkuoejrgcVPUMs9a0joXjqu8xz9821U5u3k4W6gplR"}	
+	Response:
+	   [
+	  {
+	    "id": 22,
+	    "cid": "2",
+	    "sendid": "王风",
+	    "receiver": "王五",
+	    "content": "dd",
+	    "created_at": "2017-03-24 09:05:21",
+	    "updated_at": "2017-03-24 09:05:21"
+	  },
+	  {
+	    "id": 23,
+	    "cid": "2",
+	    "sendid": "王五",
+	    "receiver": "王风",
+	    "content": "fff",
+	    "created_at": "2017-03-24 09:05:24",
+	    "updated_at": "2017-03-24 09:05:24"
+	  },
+	]  
+
+
+## orderdetails (发单的订单详情)##
+	04/06/2017 14:52:00 PM
+	Url:http://dev.digitalsnail.cn/hk2/api/web/v1/orders/orderdetails
+	Method:POST
+	Request:{"id":"75"}	
+	Head:{"Authorization":"Bearer au2DCtfoVJVoNdB9pz49P7R7QWhwtxQMR1gzyMgwc37uf2POKe9RYryaw-pwmrPM"}	
+	Response:
+	    {
+		  "fbr": {
+		    "name": "苏南海",
+		    "score": 0,
+		    "auth": "已认证",
+		    "area": "江苏省南京市南海大厦233",
+		    "image": ""
+		  },
+		  "engineer": [
+		    {
+		      "id": 51,
+		      "name": "沈凌云",
+		      "level": "无",
+		      "area": "",
+		      "book": "",
+		      "time": "2017.03.25",
+		      "status": "Y",
+		      "count": "0",
+		      "sea": 0,
+		      "engineerImage": "",
+		      "bid": true
+		    }
+		  ],
+		  "process": {
+		    "release_time": "2017.03.25 09:51:32",
+		    "pay_time": "",
+		    "examine_time": "2017.03.25 10:35:22",
+		    "select_time": "2017.04.12 14:55:38",
+		    "inspect_time": "",
+		    "submit_time": "",
+		    "check_time": "",
+		    "evaluate_time": "",
+		    "finish_time": "",
+		    "status": 3
+		  },
+		  "info": {
+		    "categoryStr": "安装调试",
+		    "name": "测试发布个订单",
+		    "orderNum": "N14904066923845",
+		    "workflowStr": "选择工程师",
+		    "skillStr": "编程技能认证-Java-中 操作系统-Windows-中 ",
+		    "time": "2017.03.14-2017.03.15",
+		    "address": "上海上海市黄浦区朝阳路56号 朝阳大厦1101",
+		    "serviceType": "均可",
+		    "engineerNo": 1,
+		    "price": "350",
+		    "acceptance": "不需要",
+		    "description": "这笔订单可屌了",
+		    "image": [],
+		    "workflow": "two-4",
+		    "stage": 2
+		  }
+		}

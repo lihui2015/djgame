@@ -1,0 +1,39 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\Reward */
+
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Rewards', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="reward-view">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'tel',
+            'points',
+            'coupon',
+            'result',
+            'message',
+            'uid',
+            [
+                'attribute' => 'created_at',
+                'value' => function ($model){
+                    $created_at = date('Y-m-d H:i:s',$model->created_at);
+                    return $created_at;
+                },
+
+            ],
+        ],
+    ]) ?>
+
+</div>

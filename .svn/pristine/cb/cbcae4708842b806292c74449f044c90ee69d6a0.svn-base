@@ -1,0 +1,33 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model common\models\Classify */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="classify-form">
+<?php $form = ActiveForm::begin(); ?>
+<?php
+   if($model->id == 1 ||$model->pid == 1 || $model->id == 19 || $model->id == 27 || $model->id == 39 || $model->id == 45 || $model->id == 52 || $model->id == 59){
+?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+<?php
+    }else{
+?>
+ <?= $form->field($model, 'pid',['labelOptions' => ['label' => '所属分类',]])->dropDownList($classify) ?>
+ <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+  <?php      
+   }
+?>
+
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? '保存' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+
+</div>
