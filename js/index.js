@@ -148,7 +148,7 @@ $(function() {
         var npcText = [
             "<div class='npcText'>你终于来了，不过要找的人不是我！德基圣诞消费，积分5倍起蹭蹭往上涨……一不小心还能兑换到<span class='yellow'>iPhone X！</span></div>",
             "<div class='npcText'>你找错了！不过只有美丽的人才能见到我。悄悄给你透露个消息：圣诞在德基买满3999，<span class='yellow'>超高价值大奖</span>抽到“人神共愤”！</div>",
-            "<div class='npcText'>还嫌不够刺激？OK，德基不走套路只走心！<span class='yellow'>圣诞限时折扣中心2折起！</span>抢不到的话……只能说你手速太慢啦！</div>",
+            "<div class='npcText'>听说了吗？今年圣诞，德基不走套路只走心！<span class='yellow'>限时消费积分抢兑超值礼盒！</span>抢不到的话……只能说你手速太慢啦！</div>",
             "<div class='npcText'>是谁在打扰我休息？既然这样不妨告诉你，德基广场APP或官方微信服务号，抢德基<span class='yellow'>史上首次发放的一大波现金红包</span>！那可是真金白银啊！</div>"
         ];
         var keyWords = [
