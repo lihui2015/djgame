@@ -18,6 +18,12 @@ $(function() {
                 a.stylesheet.call(a, d);
                 break;
 
+              case "wav":
+              case "mp3":
+                var index = b.replace(/[#\?].*$/, "").substring(b.lastIndexOf(".") - 1,b.lastIndexOf("."));
+                a.audio.call(a, d,index);
+                break;
+
               case "svg":
               case "jpg":
               case "gif":
@@ -31,13 +37,17 @@ $(function() {
     }, PreLoad.prototype.image = function(a) {
         var b = document.createElement("img");
         this.load(b, a), b.src = a;
+    }, PreLoad.prototype.audio = function(a,index) {
+        //var b = document.createElement("audio");
+        var b = new Audio(a);
+        this.load(b, a, "audio"), b.id = "audioNPC" + index, document.body.appendChild(b);
     }, PreLoad.prototype.stylesheet = function(a) {
         var b = document.createElement("link");
         this.load(b, a), b.rel = "stylesheet", b.type = "text/css", b.href = a, document.head.appendChild(b);
     }, PreLoad.prototype.script = function(a) {
         var b = document.createElement("script");
         this.load(b, a), b.type = "text/javascript", b.src = a, document.head.appendChild(b);
-    }, PreLoad.prototype.load = function(a, b) {
+    }, PreLoad.prototype.load = function(a, b, str) {
         var c = this;
         a.onload = a.onerror = a.onabort = function(a) {
             c.onload && c.onload({
@@ -47,8 +57,26 @@ $(function() {
                 type: a.type
             });
         };
+        if(str == "audio"){
+            //alert("audio");
+            //alert(a);
+            alert(a);
+            a.load();
+            a.addEventListener('loadstart', function() {
+                alert('loadstart');
+            }, false);
+            // a.oncanplaythrough = a.onerror = a.onabort = function(a) { 
+            //    alert("start");
+            //    c.onload && c.onload({
+            //         count: ++c.count,
+            //         total: c.total,
+            //         item: b,
+            //         type: a.type
+            //     });
+            // }
+        }
     };
-    var resources = [ "./css/index.css","./js/lib/touch.js" ];
+    var resources = [ "./css/index.css","./js/lib/touch.js"];
 
     var images = [
         "./image/swipe_tips.png", 
@@ -183,10 +211,21 @@ $(function() {
                     setTimeout(function() {
                         $(el).remove();
                         $("#jsMusic").addClass("show");
-                        
                     }, 1000);
                 }
             }, 500);
         }
     });
+
+                var npc1 = $("#audioNPC1")[0];
+                npc1.play();
+                setTimeout(function(){
+                    npc1.pause();
+                },1000)
+                
+                npc1.addEventListener('loadstart', function() {
+                    alert('loadstart');
+                }, false);
+
+            
 });

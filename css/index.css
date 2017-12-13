@@ -67,7 +67,7 @@ body.blink{
 }
 
 #scroller.step2{
-    width:21.58rem;
+    /*width:21.58rem;*/
 }
 
 .mainScene {
@@ -354,12 +354,12 @@ body.blink{
     background-image: url(../image/step1/animate/before/animate07.png)
 }
 
-.animate-items .item:nth-child(8) {
-    left: 7.325rem;
-    top: 7.105rem;
+.animate-items .item:nth-child(8){
+    left: 7.695rem;
+    top: 6.815rem;
     width: 1.74rem;
     height: 0.57rem;
-    background-image: url(../image/step1/animate/before/animate08.png)
+    background-image: url(../image/step1/animate/before/animate08.png);
 }
 
 .animate-items .item:nth-child(9) {
@@ -801,10 +801,16 @@ body.blink{
 }
 .dialog-tips p.dialog-result{
     margin:0;
+    display: inline-block;
+    width: 3.205rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: -1.04rem 0 0 -1.6025rem;
 }
 
 .dialog-tips p.snippet-disc{
-    margin-top:5.245rem;
+    margin-top:1.455rem;
 }
 .dialog-tips p.finish-disc{
     margin-top:1.46rem;
@@ -816,12 +822,13 @@ body.blink{
 
 .dialog-progress {
     position: absolute;
-    bottom: .4rem;
     width: 100%;
     text-align: center;
     color: #fff;
     font-size: .24rem;
-    font-weight: 700
+    font-weight: 700;
+    top: 50%;
+    margin-top: -3.3rem;
 }
 
 .dialog-progress.hide{
@@ -1026,12 +1033,12 @@ body.blink{
 }
 
 .dialog-tips .key-text.key-text_01:after {
-    width: 4.425rem;
-    height: 1.265rem;
+    width: 4.835rem;
+    height: 1.26rem;
     background: url(../image/step1/popup/text/key/01.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin: -.6325rem 0 0 -2.2125rem
+    margin: -1.54rem 0 0 -2.435rem
 }
 
 .dialog-tips .key-text.key-text_02:after {
@@ -1040,16 +1047,16 @@ body.blink{
     background: url(../image/step1/popup/text/key/02.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin: -.63rem 0 0 -1.51rem
+    margin: -1.54rem 0 0 -1.51rem
 }
 
 .dialog-tips .key-text.key-text_03:after {
-    width: 5.06rem;
+    width: 3.25rem;
     height: 1.26rem;
     background: url(../image/step1/popup/text/key/03.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin: -.63rem 0 0 -2.53rem
+    margin: -1.54rem 0 0 -1.625rem
 }
 
 .dialog-tips .key-text.key-text_04:after {
@@ -1058,7 +1065,7 @@ body.blink{
     background: url(../image/step1/popup/text/key/04.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin: -.795rem 0 0 -1.52rem
+    margin: -1.54rem 0 0 -1.52rem
 }
 
 .dialog-tips .snippet-text:after{
@@ -1121,11 +1128,12 @@ body.blink{
 }
 
 .dialog-tips .snippet-text.snippet-text_07:after {
-    width: 2.14rem;
+    width: 1.95rem;
+    height: 1.005rem;
     background: url(../image/step2/popup/text/07.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%;
-    margin:.64rem 0 0 -1.07rem;
+    margin:-2.81rem 0 0 -.975rem;
 }
 
 .dialog.bg-white{
@@ -1200,12 +1208,12 @@ body.blink{
 
 .dialog-key .snippet-img {
     display: block;
-    width: 4.095rem;
+    width: 3.765rem;
     height: 2.595rem;
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 50%;
-    margin: 2rem 0 0 -2.0475rem
+    margin: -2.155rem 0 0 -1.92rem
 }
 
 .dialog-key .snippet-img:after {
@@ -1270,7 +1278,7 @@ body.blink{
 
 .dialog-key .snippet-img.snippet-img_07{
     top: 50%;
-    margin-top: -2.23rem;
+    margin-top: -.89rem;
 }
 
 .dialog-key .snippet-img.snippet-img_07:after {
@@ -1343,16 +1351,16 @@ body.blink{
 
 .dialog-key .npc-img.npc-img_03:after {
     background-image: url(../image/step2/popup/img/npc03.png);
-    width: 4.165rem;
-    height: 5.035rem;
-    margin: -0.62rem 0 0 -1.875rem;
+    width: 4.225rem;
+    height: 4.935rem;
+    margin: -0.42rem 0 0 -1.995rem;
 }
 
 .dialog-key .npc-img.npc-img_04:after {
     background-image: url(../image/step2/popup/img/npc04.png);
-    width: 1.75rem;
-    height: 3.27rem;
-    margin: -1.71rem 0 0 -2.36rem;
+    width: 2.445rem;
+    height: 5.565rem;
+    margin: -2.41rem 0 0 -2.56rem;
 }
 
 .npcText{
@@ -1371,7 +1379,7 @@ body.blink{
 }
 
 .dialog-key .npc-img.npc-img_01 .npcText{
-    width: 1.725rem;
+    width: 2rem;
     margin: -0.56rem 0 0 -1.725rem;
 }
 
@@ -1387,7 +1395,7 @@ body.blink{
 
 .dialog-key .npc-img.npc-img_04 .npcText{
     width: 2.4rem;
-    margin: -0.545rem 0 0 -0.64rem;
+    margin: -0.545rem 0 0 -.645rem;
 }
 
 .dialog-key.hide {
@@ -1415,6 +1423,17 @@ body.blink{
 
 .dialog-mask.show {
     display: block
+}
+
+.dialog-mask.pass{
+    top: 50%;
+    margin: .32rem 0 0 -.95rem;
+}
+
+.dialog-mask.getAward{
+    top: 50%;
+    margin: 1.86rem 0 0 -.89rem;
+    background-image:url(../image/step2/popup/img/btn_getAward.png); 
 }
 
 .lock-key {
@@ -1825,17 +1844,30 @@ body.blink{
     background-color: rgba(0, 0, 0, .5)
 }
 
-.page-tips:after {
+.page-tips:before {
     position: absolute;
     left: 50%;
-    bottom: .875rem;
-    margin-left: -1.5rem;
+    top: 50%;
+    margin: -1.935rem 0 0 -1.5rem;
     content: '';
     width: 3rem;
-    height: 5.465rem;
+    height: 4.265rem;
     background: url(../image/swipe_tips.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100%
+}
+
+.page-tips:after{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.83rem;
+    height: .59rem;
+    margin: 2.65rem 0 0 -.92rem;
+    content: "";
+    background: url(../image/btn_start.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100%;
 }
 
 @-webkit-keyframes flash {

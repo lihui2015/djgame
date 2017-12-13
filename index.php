@@ -1,6 +1,6 @@
 <?php
 require_once "./weixin/jssdk.php";
-$jssdk = new JSSDK("wxbf2d4e08d960e09d", "37a42dff8de7bc0a232e9027cf1b4d08");
+$jssdk = new JSSDK("wxc259084ffe0e4de0", "3ef2b12d31052c938337b907ffa27f1f");
 $signPackage = $jssdk->GetSignPackage();
 ?>
 <!DOCTYPE html>
@@ -22,6 +22,45 @@ $signPackage = $jssdk->GetSignPackage();
             if (!doc.addEventListener) return;
             win.addEventListener(resizeEvt, recalc, false);
         })(document, window);
+
+        (function(){
+            var supportOrientation = (typeof window.orientation === 'number' &&
+            typeof window.onorientationchange === 'object');
+
+            var init = function(){
+                var htmlNode = document.body.parentNode,
+                    orientation;
+                var updateOrientation = function(){
+                    if(supportOrientation){
+                        orientation = window.orientation;
+                        switch(orientation){
+                            case 90:
+                            case -90:
+                                orientation = 'landscape'; // 这里是横屏
+                                alert("请在竖屏下玩游戏！")
+                                break;
+                            default:
+                                orientation = 'portrait'; // 这里是竖屏
+                                break;
+                        }
+                    }else{
+                        orientation = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait';
+                    }
+                    htmlNode.setAttribute('class',orientation);
+                };
+
+                if(supportOrientation){
+                    window.addEventListener('orientationchange',updateOrientation,false);
+                }else{
+                    //监听resize事件
+                    window.addEventListener('resize',updateOrientation,false);
+                }
+
+                updateOrientation();
+            };
+
+            window.addEventListener('DOMContentLoaded',init,false);
+        })();
     </script>
     <link rel="stylesheet" type="text/css" href="./css/loading.css">
 </head>
@@ -176,10 +215,10 @@ $signPackage = $jssdk->GetSignPackage();
     <div class="page-tips"></div>
 </div>
 
-<audio id="audioNPC1" src="./mp3/npc1.mp3"></audio>
-<audio id="audioNPC2" src="./mp3/npc2.mp3"></audio>
-<audio id="audioNPC3" src="./mp3/npc3.mp3"></audio>
-<audio id="audioNPC4" src="./mp3/npc4.mp3"></audio>
+<audio id="audioNPC1" src="./mp3/npc1.wav"></audio>
+<audio id="audioNPC2" src="./mp3/npc2.wav"></audio>
+<audio id="audioNPC3" src="./mp3/npc3.wav"></audio>
+<audio id="audioNPC4" src="./mp3/npc4.wav"></audio>
 <audio id="audioBg" src="./mp3/bg.mp3" loop="true"></audio>
 <audio id="audioResult" src="./mp3/result.mp3"></audio>
 <audio id="audioBroken" src="./mp3/broken.wav"></audio>

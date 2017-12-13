@@ -49,7 +49,7 @@ $(function() {
             var count = key1 + key2 + key3 + key4;
             var disc = "";
             if (count == 4) {
-                disc = "恭喜你顺利找齐4件闯关装备，不过属于勇士的探险还在继续。愿生命之光永远照耀你。";
+                disc = "恭喜你已顺利找到4件通关信物，请继续这次探秘之旅。";
                 showDialog("none", "", disc);
                 $dialog.on("tap", function() {
                     if($(this).hasClass("pass")){
@@ -58,7 +58,8 @@ $(function() {
                         $dialogProgress.hide();
                         setTimeout(function (argument) {
                             $(".swiper-container").addClass("step2");
-                            myScroll.scrollTo(-450,0);
+                            myScroll.refresh();
+                            myScroll.scrollTo(-400,0);
                             scene2();
                         },1000)
                     }
@@ -90,6 +91,7 @@ $(function() {
                 $dialogTitle.removeClass().addClass("key-text key-text_" + dTitle);
                 $dialogDisc.addClass("dialog-result").html(dDisc).show();
                 $dialogTips.addClass("key-content");
+                $mask.addClass("show pass");
             }
 
             if (dTips == "") {
@@ -113,7 +115,7 @@ $(function() {
                         keyImg = "<img src='./image/step1/popup/img/key0"+ index +".png' />";
                     setTimeout(function(){
                         keyTool.html(keyImg);
-                    },2000);
+                    },800);
                     
                     keyTool.removeClass('J_tool');
                     $dialogProgress.show();
@@ -146,10 +148,10 @@ $(function() {
         var isFinished = false;
         var count = 0;
         var npcText = [
-            "<div class='npcText'>你终于来了，不过要找的人不是我！德基圣诞消费，积分5倍起蹭蹭往上涨……一不小心还能兑换到<span class='yellow'>iPhone X！</span></div>",
-            "<div class='npcText'>你找错了！不过只有美丽的人才能见到我。悄悄给你透露个消息：圣诞在德基买满3999，<span class='yellow'>超高价值大奖</span>抽到“人神共愤”！</div>",
-            "<div class='npcText'>听说了吗？今年圣诞，德基不走套路只走心！<span class='yellow'>限时消费积分抢兑超值礼盒！</span>抢不到的话……只能说你手速太慢啦！</div>",
-            "<div class='npcText'>是谁在打扰我休息？既然这样不妨告诉你，德基广场APP或官方微信服务号，抢德基<span class='yellow'>史上首次发放的一大波现金红包</span>！那可是真金白银啊！</div>"
+            "<div class='npcText'>你要找的人不是我！不过德基圣诞消费，积分5倍起！一不小心还能兑换到<span class='yellow'>iPhone X！</span></div>",
+            "<div class='npcText'>你找错了！<br>不过悄悄告诉你：圣诞在德基买满3999就有机会抽取<span class='yellow'>超高价值大奖！</span></div>",
+            "<div class='npcText'>你听说了吗？德基限时消费积分抢兑<span class='yellow'>超值礼盒</span>！抢不到的话……只能说你手速太慢啦！</div>",
+            "<div class='npcText'>不妨告诉你，德基广场APP或官方微信服务号，抢德基<span class='yellow'>首次发放的一大波现金红包！</span></div>"
         ];
         var keyWords = [
             "是一张碎纸片，但好像不完整。",
@@ -193,20 +195,22 @@ $(function() {
             }
 
             if(dTitle == "07"){
-                Tips = "终于完成了！“DEJI”快去解锁开门吧！";
-                showDialog2("true", dTitle, Tips);
+                showDialog2("true", dTitle);
             } else{
                 Tips = keyWords[count - 1];
                 isChecked = "true";
                 showDialog2("true", dTitle, Tips, isChecked);
             }
             
-            $dialog.on("tap", function() {
+            $dialog.off().on("tap", function() {
                 $(this).removeClass("show");
                 if($(this).hasClass("finished")){
-                    $(".lock-key").addClass("show");
-                    $("#inputBoxContainer .realInput").val("").trigger("click").focus();
-                    boxInput.init();
+                    //$(".lock-key").addClass("show");
+                    //$("#inputBoxContainer .realInput").val("").trigger("click").focus();
+                    //boxInput.init();
+
+                    $(".page-validate").addClass("show");
+                    getAward();
                 }
             });
         }
@@ -221,31 +225,37 @@ $(function() {
             $dialog.removeClass("finished pass");
             $dialogKey.removeClass("hide");
             $dialogDisc.removeClass("dialog-result");
+            $mask.removeClass("show pass");
 
             if(index == 7){
                 $dialogKey.removeClass("hide");
                 $dialogKey.find("div").removeClass().addClass("snippet-img snippet-img_" + dTitle);
                 $dialogTips.addClass("key-content");
                 $dialogTitle.removeClass().addClass("snippet-text snippet-text_" + dTitle);
-                $dialogDisc.addClass("finish-disc").html(dTips).show();
+                $dialogDisc.hide();
+                $(".dialog-progress").addClass("hide");
+                $mask.addClass("show getAward");
                 $dialog.addClass("finished");
+                return false;
             }
 
             if(isKey == "true"){
                 $(".npcText").remove();
                 $dialogTips.removeClass("hide");
                 dialogFlag = false;
+                $(".dialog-progress").removeClass("hide");
             }else if(isKey == "false"){
                 $dialogTips.addClass("hide");
                 $dialogKey.find("div").removeClass().addClass("npc-img npc-img_" + dTitle).html("").append($(npcText[index - 1]));
                 $("#audioNPC" + index)[0].play();
                 $dialog.removeClass("bg-white");
+                $(".dialog-progress").addClass("hide");
                 dialogFlag = true;
             }
             if(dTips == "您已经拿到该线索！" || isChecked == "true"){
                 $dialogKey.find("div").removeClass().addClass("snippet-img snippet-img_" + dTitle);
                 $dialogTitle.removeClass();
-                $dialogTips.removeClass("key-content");
+                $dialogTips.addClass("key-content");
                 $dialogDisc.html(dTips);
                 $dialogDisc.addClass("snippet-disc").show();
                 dialogFlag = true;
@@ -264,13 +274,15 @@ $(function() {
                 $("#clue" + dTitle).attr("data-tips", "您已经拿到该线索！");
             }
             $mask.off().on("tap", function() {
-                count ++;
-                key[index - 1] = 1;
-                $mask.removeClass("show more");
-                setTimeout(function() {
-                    showResult(dTitle);
-                }, 200);
-                $audioResult.play();
+                if($(this).hasClass("more")){
+                    count ++;
+                    key[index - 1] = 1;
+                    $mask.removeClass("show more");
+                    setTimeout(function() {
+                        showResult(dTitle);
+                    }, 200);
+                    $audioResult.play();
+                }
             });
 
             var number = count > 6 ? 6 : count;
